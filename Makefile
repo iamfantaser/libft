@@ -1,27 +1,27 @@
 SRCSDIR = ./
 
-SRCS = ${SRCSDIR}ft_atoi.c ${SRCSDIR}ft_isspace_bonus.c ${SRCSDIR}ft_strndup_bonus.c ${SRCSDIR}ft_bzero.c ${SRCSDIR}ft_calloc.c ${SRCSDIR}ft_isalnum.c ${SRCSDIR}ft_isalpha.c	${SRCSDIR}ft_isascii.c ${SRCSDIR}ft_isdigit.c ${SRCSDIR}ft_islower_bonus.c ${SRCSDIR}ft_isprint.c ${SRCSDIR}ft_isupper_bonus.c ${SRCSDIR}ft_itoa.c ${SRCSDIR}ft_memccpy.c ${SRCSDIR}ft_memchr.c ${SRCSDIR}ft_memcmp.c ${SRCSDIR}ft_memcpy.c ${SRCSDIR}ft_memmove.c ${SRCSDIR}ft_memset.c ${SRCSDIR}ft_putstr_fd.c ${SRCSDIR}ft_putchar_fd.c ${SRCSDIR}ft_putendl_fd.c ${SRCSDIR}ft_putnbr_fd.c ${SRCSDIR}ft_split.c ${SRCSDIR}ft_strchr.c ${SRCSDIR}ft_strdup.c ${SRCSDIR}ft_strjoin.c ${SRCSDIR}ft_strlcat.c ${SRCSDIR}ft_strlcpy.c ${SRCSDIR}ft_strlen.c ${SRCSDIR}ft_strmapi.c ${SRCSDIR}ft_strncmp.c ${SRCSDIR}ft_strnstr.c ${SRCSDIR}ft_strrchr.c ${SRCSDIR}ft_strtrim.c ${SRCSDIR}ft_substr.c ${SRCSDIR}ft_tolower.c ${SRCSDIR}ft_toupper.c
+SRCS 			:= $(shell find . -name '*.c' ! -name '*_bonus.c')
 
-SRCS_BONUS = ${SRCSDIR}ft_lstnew.c ${SRCSDIR}ft_lstadd_front.c ${SRCSDIR}ft_lstsize.c ${SRCSDIR}ft_lstlast.c ${SRCSDIR}ft_lstadd_back.c ${SRCSDIR}ft_lstdelone.c ${SRCSDIR}ft_lstclear.c ${SRCSDIR}ft_lstiter.c ${SRCSDIR}ft_lstmap.c
+SRCS_BONUS 		:= $(shell find . -name '*_bonus.c')
 
-OBJS = ${SRCS:.c=.o}
+OBJS 			:= ${SRCS:.c=.o}
 
-OBJS_BONUS = ${SRCS_BONUS:.c=.o}
+OBJS_BONUS 		:= ${SRCS_BONUS:.c=.o}
 
-NAME = libft.a
+NAME 			:= libft.a 
 
-HEADER = -I libft.h
+HEADER 			:= libft.h
 
-CC = gcc
+CC 				:= gcc
 
-RM = rm -f
+RM 				:= rm -rf
 
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS 			:= -Wall -Wextra -Werror 
 
 %.o: %.c	libft.h
-			${CC} ${CFLAGS} -c $< $(HEADER)  -o ${<:.c=.o}
+			${CC} ${CFLAGS} -I./ -c $<  -o ${<:.c=.o}
 
-$(NAME) :	${OBJS}
+$(NAME) :	${OBJS} 
 			ar rc ${NAME} ${OBJS}
 			ranlib ${NAME}
 
@@ -32,15 +32,21 @@ bonus: 	$(OBJS_BONUS)
 all :		${NAME} 
 
 clean :
-			${RM} *.o
+			${RM} ${OBJS}
 
 fclean :	clean 
-			${RM} ${NAME}
+			rm -rf libft.a
 
 re :		fclean all
 
-rebonus :  fclean bonus
+clean_bonus: 
+			${RM} ${OBJS_BONUS}
 
-.PHONY	:	bonus clean fclean all re rebonus
+fclean_bonus: clean_bonus 
+			${RM} bonus
+
+rebonus :  fclean_bonus bonus
+
+.PHONY	:	bonus clean fclean all re  clean_bonus fclean_bonus rebonus
 
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dwulfe <dwulfe@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/30 18:06:30 by dwulfe            #+#    #+#             */
+/*   Updated: 2021/11/30 18:06:30 by dwulfe           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	ft_str_quantity(char const *s1, char c)
@@ -36,17 +48,6 @@ static int	ft_ch_q(char const *s2, char c, int start_i)
 	return (lenght);
 }
 
-static char	**ft_freee(char **dst, int s_counter)
-{
-	while (s_counter > 0)
-	{
-		s_counter--;
-		free((void *)dst[s_counter]);
-	}
-	free(dst);
-	return (NULL);
-}
-
 static char	**ft_get(char const *s, char **dst, char c, int length)
 {
 	int	i;
@@ -62,7 +63,7 @@ static char	**ft_get(char const *s, char **dst, char c, int length)
 			i++;
 		dst[s_counter] = (char *)malloc(sizeof(char) * ft_ch_q(s, c, i) + 1);
 		if (!dst[s_counter])
-			return (ft_freee((char **)dst, s_counter));
+			return (ft_arrstr_del((char **)dst, s_counter));
 		while (s[i] != '\0' && s[i] != c)
 			dst[s_counter][char_i++] = s[i++];
 		dst[s_counter][char_i] = '\0';
