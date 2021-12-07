@@ -35,7 +35,7 @@ char **ft_split_se(char *str, int c)
 				i++;
 		start = i;
 		if (str[i] != c && str[i] != '\0' )
-		{	
+		{
 			while (str[i] && str[i] != c)
 				i++;
 			result[j] = ft_strndup(str + start, i - start);
@@ -44,6 +44,6 @@ char **ft_split_se(char *str, int c)
 		if (result[j - 1] == NULL)
 				ft_arrstr_del(result, j);
 	}
-	result[j] = "\0";
+	result[j] = 0;
 	return (result);
 }
