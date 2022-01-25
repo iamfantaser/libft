@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split_se.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dwulfe <dwulfe@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/25 16:34:40 by dwulfe            #+#    #+#             */
+/*   Updated: 2022/01/25 16:34:45 by dwulfe           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	count_strs(char	*str, int c)
 {
 	int	i;
-	int flag;
-	int count;
+	int	flag;
+	int	count;
 
 	i = -1;
 	flag = 0;
@@ -19,7 +31,7 @@ int	count_strs(char	*str, int c)
 	return (count);
 }
 
-char **ft_split_se(char *str, int c)
+char	**ft_split_se(char *str, int c)
 {
 	int		i;
 	int		j;
@@ -30,11 +42,11 @@ char **ft_split_se(char *str, int c)
 	j = 0;
 	result = (char **)malloc(sizeof(char *) * (count_strs(str, c) + 1));
 	while (str[i])
-	{	
+	{
 		while (str[i] && str[i] == c)
-				i++;
+			i++;
 		start = i;
-		if (str[i] != c && str[i] != '\0' )
+		if (str[i] != c && str[i] != '\0')
 		{
 			while (str[i] && str[i] != c)
 				i++;
@@ -42,8 +54,8 @@ char **ft_split_se(char *str, int c)
 			j++;
 		}
 		if (result[j - 1] == NULL)
-				ft_arrstr_del(result, j);
+			ft_arrstr_del(result, j);
 	}
-	result[j] = 0;
+	result[j] = (void *)0;
 	return (result);
 }

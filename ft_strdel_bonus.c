@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_counter.c                                   :+:      :+:    :+:   */
+/*   ft_strdel_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dwulfe <dwulfe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 16:34:30 by dwulfe            #+#    #+#             */
-/*   Updated: 2022/01/25 16:34:31 by dwulfe           ###   ########.fr       */
+/*   Created: 2021/10/27 16:21:34 by dwulfe            #+#    #+#             */
+/*   Updated: 2021/10/27 16:22:16 by dwulfe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_count(char **str)
-{
-	int	i;
+#include "libft.h"
 
-	if (!str)
-		return (0);
-	i = 0;
-	while (str[i])
+void	ft_strdel(char	**ptr)
+{
+	if (ptr && *ptr)
 	{
-		i++;
+		free(*ptr);
+		*ptr = NULL;
 	}
-	return (i);
 }

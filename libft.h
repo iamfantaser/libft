@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dwulfe <dwulfe@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/25 16:31:06 by dwulfe            #+#    #+#             */
+/*   Updated: 2022/01/25 16:31:06 by dwulfe           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -11,6 +23,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+int			ft_str_is_num(char *str);
 int			ft_abs(int num);
 void		*ft_memset(void *b, int c, size_t len);
 void		ft_bzero(void *s, size_t n);
@@ -23,7 +36,9 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char		*ft_strcpy(char *dest, const char *src);
 size_t		ft_strlcat(char *dst, const char *src, size_t dstsize);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
-int			ft_index_of(char *line, int c);
+char		**ft_split_se(char *str, int c);
+char		*ft_strjoin_se(char *s1, char *s2);
+int			ft_index_of(char *line, int c, int reg);
 int			ft_isascii(int ch);
 int			ft_isdigit(int c);
 int			ft_isalpha(int c);
@@ -57,11 +72,10 @@ void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char const *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 void		*ft_realloc(void *memory, size_t size);
-void		ft_delptr(void *ptr);
+void		ft_delptr(void **ptr);
 t_list		*ft_lstnew(void *content);
 void		ft_lstadd_front(t_list **lst, t_list *new);
 int			ft_lstsize(t_list *lst);
-int			ft_index_of(char *str, int c);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 char		**ft_arrstr_del(char **dst, int s_counter);
 t_list		*ft_lstlast(t_list *lst);
@@ -70,10 +84,16 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *),
 				void (*del)(void *));
 void		ft_lstdelone(t_list *lst, void (*del)(void *));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
-void		ft_strdel(char	*ptr);
+void		ft_strdel(char	**ptr);
 void		ft_swap_strs(void *p1, void *p2);
 void		ft_swap_int(void *a, void *b);
 int			ft_str_count(char **str);
-
+char		*ft_decorate(char *src, char *begining, char *end);
+int			ft_ch_count(char *str, char ch);
+char		*ft_strncat(char *dest, const char *src, size_t n);
+char		*ft_strncpy(char *dest, const char *src, size_t n);
+int			*ft_min(int *arr, int size);
+int			*ft_max(int *arr, int size);
+void		ft_sort_params(int length, char *str_arr[]);
 
 #endif

@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_counter.c                                   :+:      :+:    :+:   */
+/*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dwulfe <dwulfe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 16:34:30 by dwulfe            #+#    #+#             */
-/*   Updated: 2022/01/25 16:34:31 by dwulfe           ###   ########.fr       */
+/*   Created: 2022/01/25 16:37:05 by dwulfe            #+#    #+#             */
+/*   Updated: 2022/01/25 16:37:13 by dwulfe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_count(char **str)
+#include "libft.h"
+
+int	*ft_max(int *arr, int size)
 {
 	int	i;
+	int	*max;
 
-	if (!str)
-		return (0);
 	i = 0;
-	while (str[i])
+	max = NULL;
+	while (i < size)
 	{
+		if (max == NULL || arr[i] > *max)
+			*max = arr[i];
 		i++;
 	}
-	return (i);
+	return (max);
 }

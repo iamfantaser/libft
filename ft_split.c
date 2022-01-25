@@ -69,7 +69,7 @@ static char	**ft_get(char const *s, char **dst, char c, int length)
 		dst[s_counter][char_i] = '\0';
 		s_counter++;
 	}
-	dst[s_counter] = 0;
+	dst[s_counter] = (void *)0;
 	return (dst);
 }
 

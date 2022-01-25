@@ -1,9 +1,21 @@
-void    ft_swap_int(void *a, void *b)
-{
-    int temp;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_swap_int.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dwulfe <dwulfe@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/25 16:31:56 by dwulfe            #+#    #+#             */
+/*   Updated: 2022/01/25 16:31:58 by dwulfe           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    temp = *(int *)a;
-    temp = *(int *)a;
-    *(int *)a = *(int *)b;
-    *(int *)b = temp;
+void	ft_swap_int(void *a, void *b)
+{
+	int	temp;
+
+	temp = *(int *)a;
+	temp = *(int *)a;
+	*(int *)a = *(int *)b;
+	*(int *)b = temp;
 }

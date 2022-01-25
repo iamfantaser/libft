@@ -32,7 +32,7 @@ bonus: 	$(OBJS_BONUS)
 all :		${NAME} 
 
 clean :
-			${RM} ${OBJS}
+			${RM} *.o
 
 fclean :	clean 
 			rm -rf libft.a

@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_counter.c                                   :+:      :+:    :+:   */
+/*   ft_min.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dwulfe <dwulfe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 16:34:30 by dwulfe            #+#    #+#             */
-/*   Updated: 2022/01/25 16:34:31 by dwulfe           ###   ########.fr       */
+/*   Created: 2022/01/25 16:36:50 by dwulfe            #+#    #+#             */
+/*   Updated: 2022/01/25 16:36:51 by dwulfe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_count(char **str)
+#include "libft.h"
+
+int	*ft_min(int *arr, int size)
 {
 	int	i;
+	int	*min;
 
-	if (!str)
-		return (0);
 	i = 0;
-	while (str[i])
+	min = NULL;
+	while (i < size)
 	{
+		if (min == NULL || arr[i] < *min)
+			*min = arr[i];
 		i++;
 	}
-	return (i);
+	return (min);
 }

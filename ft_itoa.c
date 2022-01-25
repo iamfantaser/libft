@@ -55,7 +55,7 @@ char	*ft_itoa(int n)
 	}
 	if ((long)n == -2147483648)
 		return (ft_strdup("-2147483648"));
-	str = (char *)malloc(sizeof(char) * j + 1 );
+	str = (char *)malloc(sizeof(char) * j + 1);
 	if (!str)
 		return (NULL);
 	ft_getstr(&length, &tmp, &n, &str);
