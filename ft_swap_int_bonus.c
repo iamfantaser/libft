@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realoc_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_swap_int_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dwulfe <dwulfe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 18:04:37 by dwulfe            #+#    #+#             */
-/*   Updated: 2022/01/25 16:35:04 by dwulfe           ###   ########.fr       */
+/*   Created: 2022/01/25 16:31:56 by dwulfe            #+#    #+#             */
+/*   Updated: 2022/01/29 15:06:01 by dwulfe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_realloc(void *memory, size_t size)
+void	ft_swap_int(void *a, void *b)
 {
-	void	*result;
+	int	temp;
 
-	result = malloc(size);
-	if (result)
-	{
-		ft_bzero(result, size);
-		result = ft_memmove(result, memory, size);
-		ft_delptr(&memory);
-		return (result);
-	}
-	return (NULL);
+	temp = *(int *)a;
+	temp = *(int *)a;
+	*(int *)a = *(int *)b;
+	*(int *)b = temp;
 }

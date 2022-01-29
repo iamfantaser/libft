@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_min.c                                           :+:      :+:    :+:   */
+/*   ft_str_isnum_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dwulfe <dwulfe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 16:36:50 by dwulfe            #+#    #+#             */
-/*   Updated: 2022/01/25 16:36:51 by dwulfe           ###   ########.fr       */
+/*   Created: 2022/01/25 16:34:06 by dwulfe            #+#    #+#             */
+/*   Updated: 2022/01/29 15:03:48 by dwulfe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	*ft_min(int *arr, int size)
+int	ft_str_is_num(char *str)
 {
 	int	i;
-	int	*min;
+	int	len;
 
+	len = 0;
 	i = 0;
-	min = NULL;
-	while (i < size)
+	while (str[len])
+		len++;
+	while (str[i])
 	{
-		if (min == NULL || arr[i] < *min)
-			*min = arr[i];
+		if ((str[i] < 48 || str[i] > 57) || (str[0] != '-'))
+			break ;
 		i++;
 	}
-	return (min);
+	if (i == len)
+		return (1);
+	else
+		return (0);
 }

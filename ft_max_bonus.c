@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap_int.c                                      :+:      :+:    :+:   */
+/*   ft_max_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dwulfe <dwulfe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 16:31:56 by dwulfe            #+#    #+#             */
-/*   Updated: 2022/01/25 16:31:58 by dwulfe           ###   ########.fr       */
+/*   Created: 2022/01/25 16:37:05 by dwulfe            #+#    #+#             */
+/*   Updated: 2022/01/29 15:04:18 by dwulfe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_swap_int(void *a, void *b)
-{
-	int	temp;
+#include "libft.h"
 
-	temp = *(int *)a;
-	temp = *(int *)a;
-	*(int *)a = *(int *)b;
-	*(int *)b = temp;
+int	*ft_max(int *arr, int size)
+{
+	int	i;
+	int	*max;
+
+	i = 0;
+	max = NULL;
+	while (i < size)
+	{
+		if (max == NULL || arr[i] > *max)
+			*max = arr[i];
+		i++;
+	}
+	return (max);
 }

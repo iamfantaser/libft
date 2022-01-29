@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_isnum.c                                     :+:      :+:    :+:   */
+/*   ft_realloc_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dwulfe <dwulfe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 16:34:06 by dwulfe            #+#    #+#             */
-/*   Updated: 2022/01/25 16:34:19 by dwulfe           ###   ########.fr       */
+/*   Created: 2021/11/30 18:04:37 by dwulfe            #+#    #+#             */
+/*   Updated: 2022/01/29 15:05:02 by dwulfe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_str_is_num(char *str)
+void	*ft_realloc(void *memory, size_t size)
 {
-	int	i;
-	int	len;
+	void	*result;
 
-	len = 0;
-	i = 0;
-	while (str[len])
-		len++;
-	while (str[i])
+	result = malloc(size);
+	if (result)
 	{
-		if ((str[i] < 48 || str[i] > 57) || (str[0] != '-'))
-			break ;
-		i++;
+		ft_bzero(result, size);
+		result = ft_memmove(result, memory, size);
+		ft_delptr(&memory);
+		return (result);
 	}
-	if (i == len)
-		return (1);
-	else
-		return (0);
+	return (NULL);
 }

@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_max.c                                           :+:      :+:    :+:   */
+/*   ft_min_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dwulfe <dwulfe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 16:37:05 by dwulfe            #+#    #+#             */
-/*   Updated: 2022/01/25 16:37:13 by dwulfe           ###   ########.fr       */
+/*   Created: 2022/01/25 16:36:50 by dwulfe            #+#    #+#             */
+/*   Updated: 2022/01/29 15:04:06 by dwulfe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	*ft_max(int *arr, int size)
+int	*ft_min(int *arr, int size)
 {
 	int	i;
-	int	*max;
+	int	*min;
 
 	i = 0;
-	max = NULL;
+	min = NULL;
 	while (i < size)
 	{
-		if (max == NULL || arr[i] > *max)
-			*max = arr[i];
+		if (min == NULL || arr[i] < *min)
+			*min = arr[i];
 		i++;
 	}
-	return (max);
+	return (min);
 }
